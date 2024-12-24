@@ -1,0 +1,288 @@
+// *********** request.rest Login **************
+
+
+// Login as Super Admin
+POST http://localhost:5001/login        
+Content-Type: application/json 
+
+{ 
+    "email": "limakali@gmail.com",
+    "password": "limakali"
+}
+
+// Login as admin
+### 
+POST http://localhost:5001/login        
+Content-Type: application/json 
+
+{ 
+    "email": "kurniawan@gmail.com",
+    "password": "123"
+}
+
+###
+// Login as User
+POST http://localhost:5001/login        
+Content-Type: application/json 
+
+{ 
+    "email": "user@gmail.com",
+    "password": "123"
+}
+
+###
+GET http://localhost:5001/me
+
+###
+DELETE http://localhost:5001/logout
+// *********** request.rest Users **************
+
+###
+// Create user
+POST http://localhost:5001/users
+Content-Type: application/json
+
+{
+    "name":"aaa",
+    "email":"aaa@gmail.com",
+    "password":"123",
+    "confPassword":"123",
+    "role":"admin"
+} 
+
+###
+// Get all users
+GET http://localhost:5001/users
+
+###
+GET http://localhost:5001/users/total
+
+
+###
+// Get user by id
+GET http://localhost:5001/users/b27d1ac3-8a51-4c30-8608-5fe28963b807
+
+
+
+###
+// Update user
+PATCH http://localhost:5001/users/b27d1ac3-8a51-4c30-8608-5fe28963b807
+Content-Type: application/json
+
+{
+    "name":"Anang",
+    "email":"anang@gmail.com",
+    "password":"anang",
+    "confPassword":"anang",
+    "role":"super_admin"
+}
+
+
+###
+DELETE http://localhost:5001/users/b1647821-b30e-400e-a908-e3a26a3583e4
+
+
+
+
+// *********** request.rest Product **************
+// Create Products
+###
+POST http://localhost:5001/products
+Content-Type: application/json
+
+{
+    "name":"Susu",
+    "price":2000
+}
+
+
+// Get All Products
+###
+GET http://localhost:5001/products
+
+
+// Get Product by id
+###
+GET http://localhost:5001/products/b7a661bf-796f-49d8-93b6-0892f3fec276
+
+
+// Update Product
+###
+PATCH http://localhost:5001/products/b7a661bf-796f-49d8-93b6-0892f3fec276
+Content-Type: application/json
+
+{
+    "name":"Cabai",
+    "price":5000
+}
+
+
+// Delete Products
+###
+DELETE http://localhost:5001/products/b7a661bf-796f-49d8-93b6-0892f3fec276
+
+
+
+
+// *********** request.rest ChatbotRule **************
+
+### Get All Chatbot Rules
+GET http://localhost:5001/chatbotrules
+Content-Type: application/json
+
+###
+
+### Get Chatbot Rule by ID
+GET http://localhost:5001/chatbotrulesById/537f12d3-3390-4f22-ab54-34ab13c3a9e7
+Content-Type: application/json
+
+### Create Chatbot Rule
+  POST http://localhost:5001/chatbotrules
+  Content-Type: application/json
+
+  {
+    "keywords": "Biaya Pendaftaran",
+    "answer": "Biaya Pendaftaran berjumlah 100000"
+  }
+
+### Create Chatbot Rule
+POST http://localhost:5001/chatbotrules
+Content-Type: application/json
+
+{
+  "keywords": "pendaftaran mahasiswa",
+  "answer": "Untuk mendaftar sebagai mahasiswa baru, silakan mengunjungi website resmi universitas kami di mana Anda dapat menemukan semua informasi terkait proses pendaftaran. Proses pendaftaran mencakup pengisian formulir online, pengumpulan dokumen, serta jadwal seleksi. Untuk informasi lebih lanjut, hubungi bagian administrasi atau layanan informasi di kontak yang tersedia di situs."
+}
+
+### Create Chatbot Rule
+POST http://localhost:5001/chatbotrules
+Content-Type: application/json
+
+{
+  "keywords": "biaya pendaftaran",
+  "answer": "Biaya pendaftaran untuk program studi reguler ditetapkan sebesar Rp 100.000. Biaya ini mencakup administrasi pengajuan aplikasi serta seleksi awal. Pembayaran dapat dilakukan melalui transfer bank atau platform pembayaran resmi yang disediakan. Jika Anda memerlukan informasi tambahan terkait metode pembayaran atau keringanan biaya, Anda dapat menghubungi pihak keuangan universitas di nomor kontak yang tersedia."
+}
+
+### Create Chatbot Rule
+POST http://localhost:5001/chatbotrules
+Content-Type: application/json
+
+{
+  "keywords": "pendidik universitas",
+  "answer": "Universitas kami didukung oleh tenaga pengajar berkualitas tinggi yang terdiri dari profesor, dosen, serta ahli di bidangnya masing-masing. Setiap pengajar memiliki latar belakang akademis yang kuat dan pengalaman praktis dalam industri. Kami juga mendorong kerjasama antara mahasiswa dan dosen untuk menciptakan lingkungan belajar yang kolaboratif. Untuk bertanya lebih lanjut tentang profil pendidik kami, Anda bisa mengunjungi halaman fakultas di situs universitas atau menghubungi bagian administrasi."
+}
+
+### Create Chatbot Rule
+POST http://localhost:5001/chatbotrules
+Content-Type: application/json
+
+{
+  "keywords": "peluang kerja lulusan",
+  "answer": "Lulusan universitas kami memiliki peluang kerja yang sangat baik di berbagai sektor industri, termasuk sektor publik dan swasta. Berbagai program studi kami dirancang untuk membekali mahasiswa dengan keterampilan praktis dan pengetahuan teoritis yang dibutuhkan oleh pasar kerja. Selain itu, universitas memiliki jaringan kerjasama yang luas dengan perusahaan dan lembaga yang mendukung penempatan kerja bagi lulusan. Untuk informasi lebih lanjut mengenai peluang kerja, Anda bisa menghubungi layanan karir universitas."
+}
+
+### Create Chatbot Rule
+POST http://localhost:5001/chatbotrules
+Content-Type: application/json
+
+{
+  "keywords": "program studi, prodi",
+  "answer": "Universitas kami menawarkan berbagai program studi yang mencakup bidang ilmu seperti teknologi, ilmu sosial, hukum, ekonomi, dan kedokteran. Setiap program dirancang dengan kurikulum yang sesuai dengan standar industri dan kebutuhan pasar. Mahasiswa juga diberikan kesempatan untuk mengikuti seminar dan pelatihan yang mendukung pengembangan keterampilan mereka. Untuk informasi lebih lanjut tentang program studi yang tersedia, Anda bisa menghubungi bagian akademik."
+}
+
+### Create Chatbot Rule
+POST http://localhost:5001/chatbotrules
+Content-Type: application/json
+
+{
+  "keywords": "infrastruktur kampus",
+  "answer": "Kampus kami dilengkapi dengan fasilitas modern termasuk perpustakaan digital, laboratorium penelitian, pusat kebugaran, dan akses internet berkecepatan tinggi. Semua infrastruktur dirancang untuk mendukung proses belajar mengajar serta kegiatan penelitian mahasiswa dan dosen. Selain itu, kampus juga memiliki area hijau yang nyaman untuk bersosialisasi dan relaksasi. Jika Anda ingin mengetahui lebih detail tentang fasilitas kampus, silakan hubungi bagian administrasi kampus."
+}
+
+### Create Chatbot Rule
+POST http://localhost:5001/chatbotrules
+Content-Type: application/json
+
+{
+  "keywords": "ekstrakurikuler kampus",
+  "answer": "Universitas kami menawarkan berbagai kegiatan ekstrakurikuler yang meliputi klub olahraga, seni, debat, dan komunitas sosial. Kegiatan ini dirancang untuk membantu mahasiswa mengembangkan minat mereka di luar akademik dan memperkaya pengalaman kampus. Setiap mahasiswa didorong untuk bergabung dengan organisasi mahasiswa yang sesuai dengan minat mereka. Untuk detail lebih lanjut mengenai kegiatan ekstrakurikuler, silakan menghubungi biro kegiatan mahasiswa."
+}
+
+###
+PATCH  http://localhost:5001/chatbotrules/db586531-fa56-4ebc-8e07-8aa31d28803a
+Content-Type:  application/json
+
+{
+  "keywords" :"Susu",
+  "answer" : "nama saya susu"
+}
+
+
+
+### Update Chatbot Rule by ID
+PATCH http://localhost:5001/chatbotrules/537f12d3-3390-4f22-ab54-34ab13c3a9e7
+Content-Type: application/json
+
+{
+  "keywords": "program studi, prodi",
+  "answer": "Prodi nya ada 3"
+}
+
+
+### Delete Chatbot Rule by ID
+DELETE http://localhost:5001/chatbotrules/47467f95-a1a5-4024-b7e9-ad515add93bc
+Content-Type: application/json
+
+###
+
+
+###
+
+POST http://localhost:5001/defaultresponse
+Content-Type: application/json
+
+{
+  "response" : "Maaf Pertanyaan anda tidak bisa kami jawab, anda bisa menghubungi panitia atau admin kami."
+}
+
+###
+GET http://localhost:5001/defaultresponses
+
+###
+GET http://localhost:5001/defaultresponse/acbd3ea7-1834-447f-8f3e-d9cce2bac390
+
+
+### 
+POST http://localhost:5001/chatbot
+Content-Type: application/json
+
+{
+  "message": "pendaftaran"
+}
+
+
+###
+POST http://localhost:5001/register
+Content-Type: application/json
+
+{
+  "name": "limakali",
+  "email": "limakali@gmail.com",
+  "password": "limakali",
+  "confPassword": "limakali"
+}
+
+
+### Mengirim pesan dari user ke admin
+POST http://localhost:5001/chat/send
+Content-Type: application/json
+
+{
+  "room_id": "1",
+  "sender_id": "93110a40-8e3b-489e-a253-c5b539a5f816",
+  "message": "Halo admin, saya ingin bertanya."
+}
+
+
+###
+GET http://localhost:5001/users/totalku

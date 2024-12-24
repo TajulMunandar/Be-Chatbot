@@ -1,0 +1,113 @@
+### Create Chatbot Rule
+POST http://localhost:5001/chatbotrules
+Content-Type: application/json
+
+{
+    "keywords": "jadwal pendaftaran ,periode ,waktu pendaftaran , daftar, pendaftaran mahasiswa baru",
+    "answer": "Pendaftaran mahasiswa baru dibuka dari 1 Juni hingga 31 Juli 2024. Pendaftaran online dapat dilakukan 24 jam sehari melalui website resmi universitas. Untuk pendaftaran langsung, kantor admisi buka Senin-Jumat, pukul 08.00-16.00. Anda bisa menghubungi admin untuk informasi lebih lanjut."
+}
+
+### Create Chatbot Rule
+POST http://localhost:5001/chatbotrules 
+Content-Type: application/json
+
+{
+    "keywords": "dokumen,berkas,syarat,persyaratan,kelengkapan",
+    "answer": "Persyaratan dokumen untuk pendaftaran meliputi: 1) Ijazah atau Surat Keterangan Lulus, 2) Transkrip nilai, 3) Kartu identitas (KTP/Paspor), 4) Pas foto terbaru, 5) Sertifikat prestasi (jika ada). Semua dokumen harus diunggah dalam format PDF. Anda bisa menghubungi admin untuk informasi lebih lanjut."
+}
+
+### Create Chatbot Rule
+POST http://localhost:5001/chatbotrules
+Content-Type: application/json
+
+{
+    "keywords": "biaya,uang,pembayaran,harga,spp",
+    "answer": "Biaya pendaftaran sebesar Rp 350.000. Biaya kuliah per semester bervariasi tergantung program studi, berkisar antara Rp 5.000.000 - Rp 15.000.000. Tersedia opsi pembayaran cicilan. Rincian lengkap dapat dilihat di website resmi universitas. Anda bisa menghubungi admin untuk informasi lebih lanjut."
+}
+
+### Create Chatbot Rule
+POST http://localhost:5001/chatbotrules
+Content-Type: application/json
+
+{
+    "keywords": "jurusan,prodi,program studi,fakultas,pilihan",
+    "answer": "Universitas kami menawarkan berbagai program studi di 7 fakultas: 1) Ekonomi & Bisnis, 2) Teknik, 3) Kedokteran, 4) Hukum, 5) Ilmu Sosial & Politik, 6) Ilmu Budaya, 7) Sains & Matematika. Setiap calon mahasiswa dapat memilih hingga 3 program studi. Anda bisa menghubungi admin untuk informasi lebih lanjut."
+}
+
+### Create Chatbot Rule
+POST http://localhost:5001/chatbotrules
+Content-Type: application/json
+
+{
+    "keywords": "seleksi,ujian,tes,sbmptn,mandiri",
+    "answer": "Proses seleksi meliputi: 1) Seleksi Nasional (SNMPTN), 2) Seleksi Bersama (SBMPTN), 3) Jalur Mandiri. Jalur Mandiri terdiri dari tes tertulis dan wawancara. Tes mencakup kemampuan akademik, bahasa Inggris, dan tes khusus sesuai program studi. Anda bisa menghubungi admin untuk informasi lebih lanjut."
+}
+
+### Create Chatbot Rule
+POST http://localhost:5001/chatbotrules
+Content-Type: application/json
+
+{
+    "keywords": "pengumuman,hasil,kelulusan,diterima,lolos",
+    "answer": "Pengumuman hasil seleksi akan diumumkan pada tanggal 15 Agustus 2024 pukul 15.00 WIB melalui website resmi universitas dan SMS ke nomor yang terdaftar. Pastikan untuk memeriksa status kelulusan Anda segera setelah pengumuman. Anda bisa menghubungi admin untuk informasi lebih lanjut."
+}
+
+### Create Chatbot Rule
+POST http://localhost:5001/chatbotrules
+Content-Type: application/json
+
+{
+    "keywords": "daftar ulang,registrasi,mahasiswa baru,ospek,orientasi",
+    "answer": "Daftar ulang bagi calon mahasiswa yang diterima dilakukan pada 20-25 Agustus 2024. Proses meliputi verifikasi dokumen asli, pembayaran biaya semester pertama, dan pengambilan Kartu Tanda Mahasiswa (KTM). Orientasi mahasiswa baru akan diadakan pada 1-5 September 2024. Anda bisa menghubungi admin untuk informasi lebih lanjut."
+}
+
+### Create Chatbot Rule
+POST http://localhost:5001/chatbotrules
+Content-Type: application/json
+
+{
+    "keywords": "beasiswa,bantuan,biaya,potongan,keringanan",
+    "answer": "Tersedia berbagai jenis beasiswa: 1) Beasiswa Prestasi Akademik, 2) Beasiswa Olahraga dan Seni, 3) Beasiswa Keluarga Kurang Mampu, 4) Beasiswa Kemitraan Industri. Pendaftaran beasiswa dibuka bersamaan dengan pendaftaran mahasiswa baru. Persyaratan spesifik dapat dilihat di website resmi. Anda bisa menghubungi admin untuk informasi lebih lanjut."
+}
+
+### Create Chatbot Rule
+POST http://localhost:5001/chatbotrules
+Content-Type: application/json
+
+{
+    "keywords": "fasilitas,kampus,asrama,laboratorium,perpustakaan",
+    "answer": "Kampus kami dilengkapi dengan fasilitas modern: perpustakaan digital, laboratorium canggih, pusat olahraga, asrama mahasiswa, kantin, klinik kesehatan, dan area wifi. Tersedia juga ruang diskusi, studio seni, dan pusat kegiatan mahasiswa. Tur virtual kampus dapat diakses melalui website resmi. Anda bisa menghubungi admin untuk informasi lebih lanjut."
+}
+
+### Create Chatbot Rule
+POST http://localhost:5001/chatbotrules
+Content-Type: application/json
+
+{
+    "keywords": "kontak,hubungi,bantuan,informasi,tanya",
+    "answer": "Untuk informasi lebih lanjut, Anda dapat menghubungi: 1) Hotline Admisi: 021-1234567 (Senin-Jumat, 08.00-16.00), 2) Email: admisi@universitaskami.ac.id, 3) Live Chat di website resmi (24/7), 4) Media sosial: @UniversitasKami di Instagram dan Twitter. Tim kami siap membantu menjawab pertanyaan Anda."
+}
+
+
+###
+POST http://localhost:5001/chatbotrules
+    Content-Type: application/json
+
+    {
+        "keywords":"mereka",
+        "answer": "mereka answer",
+        "intent_name" : "beasiswa",
+        "question": "1 question"
+    }
+###
+GET http://localhost:5001/chatbotrules
+
+### 
+POST http://localhost:5001/chatbot
+Content-Type: application/json
+
+{
+  "message": " halo apa kabar"
+}
+
+

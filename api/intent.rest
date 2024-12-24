@@ -1,0 +1,14 @@
+GET http://localhost:5001/intent
+
+
+###
+POST http://localhost:5001/intent
+Content-Type: application/json
+
+{
+  "intent_name": "beasiswa"
+}
+
+
+###
+GET http://localhost:5001/me

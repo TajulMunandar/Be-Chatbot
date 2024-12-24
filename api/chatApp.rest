@@ -1,0 +1,25 @@
+POST http://localhost:5001/chat
+Content-Type: application/json
+
+{
+    "message": "Assalamualaikum min"
+}
+
+###
+GET http://localhost:5001/chat
+
+###
+GET http://localhost:5001/chats/users
+
+
+###
+GET http://localhost:5001/chats/user/f7327e3f-7065-40b9-a149-2748ee586874
+
+
+###
+POST http://localhost:5001/chats/user/93110a40-8e3b-489e-a253-c5b539a5f816/reply
+Content-Type: application/json
+
+{
+    "message": "Ada apa"
+}
