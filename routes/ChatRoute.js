@@ -15,7 +15,7 @@ import {
   getChatDetailsByRoomId,
   postChat,
 } from "../controller/ChatDetail.js";
-import { getAllChatRooms } from "../controller/ChatRoom.js";
+import { createChatRoom, getAllChatRooms } from "../controller/ChatRoom.js";
 
 const router = express.Router();
 
@@ -42,8 +42,9 @@ router.post(
   replyToUserChat
 );
 
-router.get("/chat-details/:chatRoomId", verifyUser, getChatDetailsByRoomId);
 router.get("/chat-rooms", verifyUser, getAllChatRooms);
+router.post("/chat-room", verifyUser, createChatRoom);
+router.get("/chat-details/:chatRoomId", verifyUser, getChatDetailsByRoomId);
 router.get("/chat-details", verifyUser, getAllChatDetails);
 router.post("/chat-details", verifyUser, postChat);
 
