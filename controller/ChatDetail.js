@@ -22,18 +22,24 @@ export const getChatDetailsByRoomId = async (req, res) => {
       include: [
         {
           model: Users,
-          attributes: ["uuid", "name", "role"], // Ambil informasi pengguna tertentu
+          attributes: ["uuid", "name", "role"],
+        },
+        {
+          model: ChatRoom,
+          attributes: ["id", "uuid", "name", "description"],
         },
       ],
       order: [["timestamp", "ASC"]], // Urutkan berdasarkan waktu
     });
 
     const formattedChatDetails = chatDetails.map((chat) => ({
+      chatRoom_id: chat.chat_room.id,
       message: chat.message,
       user: chat.user,
-      role: chat.role, // Tambahkan informasi role jika diperlukan
       timestamp: chat.timestamp,
     }));
+
+    console.log(formattedChatDetails[0]);
 
     res.status(200).json({
       name: formattedChatDetails[0]?.user?.name || "Unknown User", // Menyertakan nama user untuk chat room
@@ -74,6 +80,8 @@ export const getAllChatDetails = async (req, res) => {
 export const postChat = async (req, res) => {
   const { chatRoomId, uuid, message } = req.body;
 
+  console.log(chatRoomId);
+
   // Validasi input
   if (!uuid || !message) {
     return res
@@ -89,10 +97,21 @@ export const postChat = async (req, res) => {
     }
 
     let roomId = chatRoomId;
+    console.log(roomId);
+    console.log(user);
 
-    const id_room = await ChatRoom.findOne({
-      where: { uuid: roomId }, // Mencocokkan dengan uuid chat room
-    });
+    let id_room;
+    if (user.role === "admin") {
+      // If the user's role is 'admin', search by uuid
+      id_room = await ChatRoom.findOne({
+        where: { uuid: roomId }, // Search by uuid for admin
+      });
+    } else {
+      // For other roles, search by id
+      id_room = await ChatRoom.findOne({
+        where: { id: roomId }, // Search by id for non-admin
+      });
+    }
 
     if (!roomId) {
       // Membuat chat room baru jika tidak ada
@@ -100,7 +119,7 @@ export const postChat = async (req, res) => {
         name: "Default Room", // Ganti dengan nama room yang sesuai
         description: "Default des", // Ganti dengan nama room yang sesuai
       });
-      id_room = newRoom.id; // Mengambil ID dari room yang baru dibuat
+      id_room = newRoom; // Mengambil ID dari room yang baru dibuat
     }
 
     const chat = await ChatDetail.create({

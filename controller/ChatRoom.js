@@ -11,7 +11,7 @@ export const getAllChatRooms = async (req, res) => {
     if (role === "admin") {
       // Admin melihat semua room
       const chatRooms = await ChatRoom.findAll({
-        attributes: ["uuid", "name", "description"],
+        attributes: ["id", "uuid", "name", "description"],
         order: [["name", "ASC"]],
         include: [
           {
@@ -40,7 +40,7 @@ export const getAllChatRooms = async (req, res) => {
     }
 
     const chatRooms = await ChatRoom.findAll({
-      attributes: ["uuid", "name", "description"],
+      attributes: ["id", "uuid", "name", "description"],
       include: [
         {
           model: ChatDetail,
